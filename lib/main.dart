@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
-import 'forgot_password.dart';
-import 'activation_code.dart';
-import 'reset_password.dart';
+import 'dashboard.dart';
+import 'absensi.dart';
+import 'reservasi_ruangan.dart';
+import 'laporan_kerusakan.dart';
+import 'notifikasi.dart';
+import 'monitoring_alat.dart';
+import 'profil.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +24,13 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => LoginPage(),
         '/signup': (context) => const SignupPage(),
-        '/forgot-password': (context) => const ForgotPasswordPage(),
-        '/activation-code': (context) => const ActivationCodePage(),
-        '/reset-password': (context) => const ResetPasswordPage(),
+        '/dashboard': (context) => const DashboardPage(),
+        '/absensi': (context) => const AbsensiPage(),
+        '/reservasi_ruangan': (context) => const ReservasiRuanganPage(),
+        '/laporan_kerusakan': (context) => const LaporanKerusakanPage(),
+        '/notifikasi': (context) => const NotifikasiPage(),
+        '/monitoring_alat': (context) => const MonitoringAlatPage(),
+        '/profil': (context) => const ProfilPage(),
       },
     );
   }
@@ -96,7 +105,7 @@ class LoginPage extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Handle login action here
+                    Navigator.pushNamed(context, '/dashboard');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -134,19 +143,6 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/forgot-password');
-                },
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ),
             ],
           ),
